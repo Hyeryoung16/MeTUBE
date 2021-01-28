@@ -29,7 +29,7 @@
   --weight-regular: 400;
 
   /* Size */
-  --size-border-radius: 4px;
+  --size-border-radius: 2px;
 
   /* Animation Duration */
   --animation-duration: 300ms;
@@ -40,7 +40,12 @@
   box-sizing: border-box;
 }
 
+html{
+  height : 100%;
+}
+
 body {
+  height: 100%;
   margin: 0;
   font-family: "Open Sans", sans-serif;
   cursor: defualt; /*커서 올라갔을 때*/
@@ -172,6 +177,7 @@ p {
 
 #body{
   display:flex;
+  height: 100%;
 }
 
 .aside{
@@ -210,6 +216,84 @@ p {
 }
 
 .container{
-  flex-grow: 1;
   background-color: var(--color-black);
+  padding: 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.play{
+  margin: 0 15px;
+  height: 330px;
+  position: relative;
+}
+
+.play__description{
+  display: flex;
+}
+
+.left{
+  margin-right: 10px;
+}
+
+.owner__logo{
+  width: 40px;
+  height: 40px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.right{
+  flex-grow: 1;
+  color: var(--color-dark-white);
+}
+
+.title{
+  font-size: var(--font-small);
+}
+
+.owner{
+  font-size: var(--font-micro);
+}
+
+.play__icons{
+  display:flex;
+  flex-direction: column;
+  top: 36px;
+  right: 5px;
+  position: absolute;
+  display: none;
+}
+
+.play__icon{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 2px 0;
+}
+
+.play__icon .text,
+.play__icon .icon{
+  height: 30px;
+  line-height: 30px;
+  color: var(--color-dark-white);
+  background-color: rgba( 0, 0, 0, 0.9 );
+  text-align: center;
+  line-height: 30px;
+  border-radius: var(--size-border-radius);
+}
+
+.play__icon .text{
+  padding: 0 10px;
+  display: none;
+}
+
+.play__icons .icon{
+  width: 30px;
+}
+
+.play:hover .play__icons{
+  display: block;
 }
