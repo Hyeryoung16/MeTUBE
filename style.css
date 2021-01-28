@@ -40,12 +40,7 @@
   box-sizing: border-box;
 }
 
-html{
-  height : 100%;
-}
-
 body {
-  height: 100%;
   margin: 0;
   font-family: "Open Sans", sans-serif;
   cursor: defualt; /*커서 올라갔을 때*/
@@ -177,7 +172,7 @@ p {
 
 #body{
   display:flex;
-  height: 100%;
+  min-height: 100VH;
 }
 
 .aside{
@@ -205,7 +200,8 @@ p {
   color : var(--color-white);
 }
 
-.item i{
+.item i,
+.item.hidden i{
   width: 14px;
   height: 22px;
   margin-right: 20px;
@@ -215,30 +211,42 @@ p {
   display:none;
 }
 
-.container{
+.container{ 
   background-color: var(--color-black);
-  padding: 0 30px;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
+  flex-grow: 1;
 }
 
-.play{
+.play{ 
+  width: 360px;
   margin: 0 15px;
-  height: 330px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play__thumbnail{ 
+  width: 100%;
+  height: 100%;
+  margin : 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .play__description{
   display: flex;
 }
 
-.left{
+.play__description .left{
   margin-right: 10px;
 }
 
-.owner__logo{
+.play__description .left .owner__logo{
   width: 40px;
   height: 40px;
   border: 1px solid white;
@@ -296,4 +304,33 @@ p {
 
 .play:hover .play__icons{
   display: block;
+}
+
+@media screen and (max-width: 1300px){
+  .aside{
+    width: 200px;
+  }
+
+  .main__tab .item,
+  .main__tab .item.hidden{
+    flex-direction: column;
+    padding: 10px 5px;
+    align-items: center;
+  }
+
+  .main__tab .item i{
+    margin: 0;
+  }
+
+  .main__tab .item .item__description{
+    font-size: 5px;
+  }
+
+  .main__tab .item.hidden{
+    display: flex;
+  }
+
+  .sub__tab{
+    display: none;
+  }
 }
